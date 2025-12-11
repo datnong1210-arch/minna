@@ -1,0 +1,255 @@
+/**
+ * Admin Styles
+ * @package AhoMinna
+ */
+
+/* Dashboard Grid */
+.ahominna-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Stats Cards */
+.ahominna-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    grid-column: 1 / -1;
+}
+
+.stat-card {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.stat-icon {
+    font-size: 40px;
+    color: #2271b1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon .dashicons {
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+}
+
+.stat-content h3 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.stat-content p {
+    margin: 5px 0 0 0;
+    color: #646970;
+    font-size: 14px;
+}
+
+/* Quick Actions */
+.ahominna-quick-actions {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.ahominna-quick-actions h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #c3c4c7;
+    padding-bottom: 10px;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.action-buttons .button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+}
+
+/* Recent Lessons */
+.ahominna-recent-lessons {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 8px;
+    padding: 20px;
+    grid-column: 1 / -1;
+}
+
+.ahominna-recent-lessons h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #c3c4c7;
+    padding-bottom: 10px;
+}
+
+.ahominna-recent-lessons table {
+    margin-top: 15px;
+}
+
+/* Help Section */
+.ahominna-help {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 8px;
+    padding: 20px;
+    grid-column: 1 / -1;
+}
+
+.ahominna-help h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #c3c4c7;
+    padding-bottom: 10px;
+}
+
+.help-content {
+    margin-top: 15px;
+}
+
+.help-content h3 {
+    color: #2271b1;
+    margin-top: 20px;
+}
+
+.help-content code {
+    background: #f0f0f1;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+/* Import Page */
+.ahominna-import-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.import-form-section,
+.import-instructions-section {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.import-form-section h2,
+.import-instructions-section h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #c3c4c7;
+    padding-bottom: 10px;
+}
+
+.instructions-box {
+    background: #f6f7f7;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.instructions-box h3 {
+    margin-top: 0;
+    color: #2271b1;
+}
+
+.instructions-box pre {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    padding: 10px;
+    overflow-x: auto;
+    font-size: 12px;
+}
+
+/* Settings Page */
+.ahominna-settings-form {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.ahominna-settings-form h2 {
+    border-bottom: 1px solid #c3c4c7;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+
+.ahominna-settings-form h2:first-of-type {
+    margin-top: 0;
+}
+
+/* Meta Boxes */
+.ahominna-meta-box {
+    padding: 12px;
+}
+
+.ahominna-meta-box p {
+    margin: 15px 0;
+}
+
+.ahominna-meta-box label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.ahominna-meta-box input[type="text"],
+.ahominna-meta-box input[type="url"],
+.ahominna-meta-box input[type="number"],
+.ahominna-meta-box textarea {
+    width: 100%;
+    padding: 8px;
+}
+
+.ahominna-meta-box textarea {
+    font-family: monospace;
+}
+
+.ahominna-meta-box small {
+    display: block;
+    color: #646970;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.ahominna-upload-audio,
+.ahominna-upload-image {
+    margin-top: 5px;
+}
+
+/* Responsive */
+@media (max-width: 782px) {
+    .ahominna-import-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .ahominna-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

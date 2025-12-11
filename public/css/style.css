@@ -1,0 +1,1447 @@
+/**
+ * AhoMINNA Public Styles
+ * @package AhoMinna
+ */
+
+/* ==================== Variables ==================== */
+:root {
+    --primary-color: #e74c3c;
+    --secondary-color: #3498db;
+    --accent-color: #f39c12;
+    --success-color: #27ae60;
+    --danger-color: #c0392b;
+    --dark-color: #2c3e50;
+    --light-color: #ecf0f1;
+    --text-color: #34495e;
+    --border-color: #bdc3c7;
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);
+    --shadow-lg: 0 4px 16px rgba(0,0,0,0.15);
+    --transition: all 0.3s ease;
+}
+
+/* ==================== Global Styles ==================== */
+.ahominna-lesson-container,
+.ahominna-archive-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Noto Sans JP', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ==================== Lesson Header ==================== */
+.ahominna-lesson-header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    animation: slideInDown 0.5s ease;
+}
+
+.lesson-number-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.lesson-title {
+    font-size: 36px;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+.lesson-description {
+    font-size: 18px;
+    opacity: 0.95;
+    max-width: 800px;
+    margin: 10px auto 0;
+}
+
+/* ==================== Navigation Tabs ==================== */
+.ahominna-lesson-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.nav-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.nav-tab:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.nav-tab.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.nav-tab .dashicons {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+}
+
+/* ==================== Lesson Sections ==================== */
+.ahominna-lesson-content {
+    min-height: 500px;
+}
+
+.lesson-section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.lesson-section.active {
+    display: block;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.section-header h2 {
+    font-size: 28px;
+    color: var(--dark-color);
+    margin: 0;
+}
+
+/* ==================== Flashcard Styles ==================== */
+.flashcard-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.flashcard-wrapper {
+    perspective: 1000px;
+    min-height: 500px;
+    position: relative;
+}
+
+.flashcard {
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.flashcard-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.flashcard-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.flashcard-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flashcard-text {
+    text-align: center;
+}
+
+.flashcard-text .kanji {
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.flashcard-text .hiragana {
+    font-size: 32px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.flashcard-text .romaji {
+    font-size: 24px;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+.vietnamese-meaning {
+    text-align: center;
+}
+
+.vietnamese-meaning h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.vietnamese-meaning p {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.review-text {
+    text-align: center;
+}
+
+.review-text .kanji {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.review-text .hiragana {
+    font-size: 24px;
+    opacity: 0.9;
+}
+
+.flashcard-flip-btn {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.flashcard-flip-btn:hover {
+    background: #e67e22;
+    transform: scale(1.05);
+}
+
+.audio-play-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.audio-play-btn:hover {
+    background: #2980b9;
+    transform: scale(1.1);
+}
+
+.audio-play-btn .dashicons {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+/* Flashcard Controls */
+.flashcard-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.flashcard-nav {
+    padding: 12px 24px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.flashcard-nav:hover:not(:disabled) {
+    background: var(--danger-color);
+    transform: translateY(-2px);
+}
+
+.flashcard-nav:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.flashcard-counter {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+/* Vocabulary Controls */
+.vocab-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.vocab-mode-btn,
+.vocab-shuffle-btn {
+    padding: 8px 16px;
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.vocab-mode-btn.active {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+.vocab-mode-btn:hover,
+.vocab-shuffle-btn:hover {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+/* Vocabulary List View */
+.vocabulary-list-view {
+    margin-top: 30px;
+}
+
+.vocab-table {
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.vocab-table th {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.vocab-table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.vocab-table tr:hover {
+    background: var(--light-color);
+}
+
+.toggle-view-btn {
+    display: block;
+    margin: 30px auto 0;
+    padding: 12px 24px;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toggle-view-btn:hover {
+    background: #2980b9;
+}
+
+/* ==================== Grammar Styles ==================== */
+.grammar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grammar-item {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.grammar-item:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.grammar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--secondary-color), #5dade2);
+    color: white;
+    cursor: pointer;
+}
+
+.grammar-header h3 {
+    margin: 0;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.grammar-number {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 35px;
+    font-weight: 700;
+}
+
+.grammar-toggle-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.grammar-toggle-btn:hover {
+    transform: scale(1.2);
+}
+
+.grammar-item.collapsed .grammar-content {
+    display: none;
+}
+
+.grammar-item.collapsed .grammar-toggle-btn .dashicons {
+    transform: rotate(-90deg);
+}
+
+.grammar-content {
+    padding: 30px;
+    animation: slideDown 0.3s ease;
+}
+
+.grammar-pattern-display {
+    margin-bottom: 25px;
+}
+
+.pattern-box {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.grammar-explanation {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: var(--light-color);
+    border-radius: 8px;
+}
+
+.grammar-explanation h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.grammar-examples {
+    margin-bottom: 20px;
+}
+
+.grammar-examples h4 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.example-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    background: white;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.example-japanese {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 8px;
+}
+
+.example-japanese mark {
+    background: var(--accent-color);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.example-vietnamese {
+    font-size: 16px;
+    color: var(--text-color);
+    font-style: italic;
+}
+
+/* ==================== Dialogue Styles ==================== */
+.dialogue-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.dialogue-video {
+    margin-bottom: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dialogue-video-player {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.dialogue-audio-controls {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.dialogue-play-all {
+    padding: 15px 40px;
+    background: var(--success-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dialogue-play-all:hover {
+    background: #229954;
+    transform: scale(1.05);
+}
+
+.dialogue-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.dialogue-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+}
+
+.dialogue-line:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateX(5px);
+}
+
+.dialogue-line.playing {
+    background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+    animation: pulse 1s ease infinite;
+}
+
+.speaker-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 80px;
+}
+
+.speaker-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.speaker-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.dialogue-text {
+    flex: 1;
+}
+
+.japanese-text {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.vietnamese-text {
+    font-size: 16px;
+    color: var(--text-color);
+    font-style: italic;
+}
+
+.line-audio-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line-audio-btn:hover {
+    background: #2980b9;
+    transform: scale(1.1);
+}
+
+.dialogue-controls {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.toggle-translation-btn {
+    padding: 12px 24px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toggle-translation-btn:hover {
+    background: #e67e22;
+}
+
+.dialogue-line.hide-translation .vietnamese-text {
+    display: none;
+}
+
+/* ==================== Quiz Styles ==================== */
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quiz-start-screen {
+    text-align: center;
+    padding: 60px 30px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+}
+
+.quiz-info {
+    margin-bottom: 40px;
+}
+
+.quiz-icon {
+    font-size: 80px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.quiz-icon .dashicons {
+    width: 80px;
+    height: 80px;
+    font-size: 80px;
+}
+
+.quiz-start-btn {
+    padding: 15px 40px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.quiz-start-btn:hover {
+    background: var(--danger-color);
+    transform: scale(1.05);
+}
+
+.quiz-question {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    animation: fadeIn 0.5s ease;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.question-number {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.question-type.badge {
+    display: inline-block;
+    padding: 5px 15px;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.question-audio {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.question-audio-btn {
+    padding: 12px 30px;
+    background: var(--success-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.question-audio-btn:hover {
+    background: #229954;
+}
+
+.question-text {
+    margin-bottom: 30px;
+}
+
+.question-text p {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.question-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background: var(--light-color);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.option-label:hover {
+    border-color: var(--secondary-color);
+    background: white;
+}
+
+.option-label input[type="radio"] {
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.option-label input[type="radio"]:checked + .option-text {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.option-text {
+    flex: 1;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.option-letter {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 600;
+}
+
+.option-label.correct {
+    border-color: var(--success-color);
+    background: rgba(39, 174, 96, 0.1);
+}
+
+.option-label.incorrect {
+    border-color: var(--danger-color);
+    background: rgba(192, 57, 43, 0.1);
+}
+
+.question-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.quiz-nav-btn,
+.quiz-submit-btn {
+    padding: 12px 24px;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quiz-nav-btn:hover {
+    background: #2980b9;
+}
+
+.quiz-submit-btn {
+    background: var(--primary-color);
+    margin-left: auto;
+}
+
+.quiz-submit-btn:hover {
+    background: var(--danger-color);
+}
+
+.quiz-progress {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.progress-text {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.progress-bar {
+    height: 10px;
+    background: var(--light-color);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--success-color), var(--secondary-color));
+    transition: width 0.3s ease;
+}
+
+.quiz-results {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    animation: fadeIn 0.5s ease;
+}
+
+.results-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: scaleIn 0.5s ease;
+}
+
+.score-value {
+    font-size: 42px;
+    font-weight: 700;
+    color: white;
+}
+
+.score-message {
+    font-size: 24px;
+    color: var(--dark-color);
+}
+
+.results-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    background: var(--light-color);
+    border-radius: 8px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.results-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.quiz-retry-btn,
+.quiz-review-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quiz-retry-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+.quiz-retry-btn:hover {
+    background: var(--danger-color);
+}
+
+.quiz-review-btn {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.quiz-review-btn:hover {
+    background: #2980b9;
+}
+
+/* ==================== Archive Styles ==================== */
+.archive-header {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 16px;
+    margin-bottom: 40px;
+}
+
+.archive-title {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.archive-description {
+    font-size: 20px;
+    opacity: 0.95;
+}
+
+.ahominna-lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.ahominna-lesson-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.ahominna-lesson-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.lesson-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.lesson-thumbnail {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.lesson-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.ahominna-lesson-card:hover .lesson-thumbnail img {
+    transform: scale(1.1);
+}
+
+.lesson-number-overlay {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.lesson-thumbnail.no-image {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lesson-number-badge {
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+}
+
+.lesson-content {
+    padding: 25px;
+}
+
+.lesson-content .lesson-title {
+    font-size: 22px;
+    color: var(--dark-color);
+    margin-bottom: 12px;
+}
+
+.lesson-excerpt {
+    font-size: 15px;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.lesson-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.lesson-action {
+    margin-top: 15px;
+}
+
+.learn-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.ahominna-lesson-card:hover .learn-btn {
+    background: var(--danger-color);
+}
+
+/* ==================== Fullscreen Mode ==================== */
+.ahominna-fullscreen-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ahominna-fullscreen-btn:hover {
+    background: var(--danger-color);
+    transform: scale(1.1);
+}
+
+.ahominna-fullscreen-btn .dashicons {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+.ahominna-lesson-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: white;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* ==================== Progress Bar ==================== */
+.ahominna-progress-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--light-color);
+    z-index: 999;
+}
+
+.ahominna-progress-bar .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+/* ==================== Utility Classes ==================== */
+.no-content-message {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.no-content-message p {
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+.no-lessons-message {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.no-content-icon {
+    font-size: 80px;
+    color: var(--border-color);
+    margin-bottom: 20px;
+}
+
+.no-content-icon .dashicons {
+    width: 80px;
+    height: 80px;
+    font-size: 80px;
+}
+
+/* ==================== Animations ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 2000px;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 768px) {
+    .lesson-title {
+        font-size: 28px;
+    }
+    
+    .ahominna-lesson-nav {
+        flex-direction: column;
+    }
+    
+    .flashcard {
+        height: 400px;
+    }
+    
+    .flashcard-text .kanji {
+        font-size: 48px;
+    }
+    
+    .flashcard-text .hiragana {
+        font-size: 24px;
+    }
+    
+    .flashcard-text .romaji {
+        font-size: 18px;
+    }
+    
+    .grammar-header h3 {
+        font-size: 18px;
+    }
+    
+    .quiz-question {
+        padding: 20px;
+    }
+    
+    .question-text p {
+        font-size: 18px;
+    }
+    
+    .ahominna-lessons-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .results-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .flashcard-controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .flashcard-nav {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .vocab-controls {
+        flex-direction: column;
+    }
+    
+    .question-navigation {
+        flex-direction: column;
+    }
+}
+
+/* Landscape Mode Optimization */
+@media (orientation: landscape) and (max-height: 600px) {
+    .ahominna-lesson-header {
+        padding: 20px;
+    }
+    
+    .lesson-title {
+        font-size: 24px;
+    }
+    
+    .flashcard {
+        height: 350px;
+    }
+}
