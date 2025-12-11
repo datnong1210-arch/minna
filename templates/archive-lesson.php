@@ -48,16 +48,21 @@ get_header();
                             
                             <div class="lesson-meta">
                                 <?php
-                                // Count related content
-                                $vocab_count = count(get_posts(array(
-                                    'post_type' => 'ahominna_vocabulary',
-                                    'posts_per_page' => -1,
-                                    'meta_query' => array(array('key' => '_lesson_id', 'value' => get_the_ID()))
-                                )));
+                                // Count related content efficiently using direct query
+                                global $wpdb;
+                                $vocab_count = $wpdb->get_var($wpdb->prepare(
+                                    "SELECT COUNT(*) FROM {$wpdb->postmeta} pm 
+                                    INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID 
+                                    WHERE p.post_type = 'ahominna_vocabulary' 
+                                    AND p.post_status = 'publish'
+                                    AND pm.meta_key = '_lesson_id' 
+                                    AND pm.meta_value = %d",
+                                    get_the_ID()
+                                ));
                                 ?>
                                 <span class="meta-item">
                                     <span class="dashicons dashicons-translation"></span>
-                                    <?php printf(__('%d từ vựng', 'ahominna'), $vocab_count); ?>
+                                    <?php printf(__('%d từ vựng', 'ahominna'), intval($vocab_count)); ?>
                                 </span>
                             </div>
                             

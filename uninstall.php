@@ -16,19 +16,22 @@ delete_option('ahominna_version');
 delete_option('ahominna_enable_audio');
 delete_option('ahominna_enable_video');
 delete_option('ahominna_items_per_page');
+delete_option('ahominna_vocab_per_page');
 
 // Delete custom tables (optional - comment out if you want to preserve data)
 global $wpdb;
 
 // Sanitize table names by ensuring they use the correct prefix
-$progress_table = $wpdb->prefix . 'ahominna_progress';
-$quiz_table = $wpdb->prefix . 'ahominna_quiz_results';
+$progress_table_suffix = 'ahominna_progress';
+$quiz_table_suffix = 'ahominna_quiz_results';
 
-// Verify table names are valid (contain only alphanumeric and underscore)
-if (preg_match('/^[a-zA-Z0-9_]+$/', str_replace($wpdb->prefix, '', 'ahominna_progress'))) {
+// Validate table name suffixes (contain only alphanumeric and underscore)
+if (preg_match('/^[a-zA-Z0-9_]+$/', $progress_table_suffix)) {
+    $progress_table = $wpdb->prefix . $progress_table_suffix;
     $wpdb->query("DROP TABLE IF EXISTS `{$progress_table}`");
 }
-if (preg_match('/^[a-zA-Z0-9_]+$/', str_replace($wpdb->prefix, '', 'ahominna_quiz_results'))) {
+if (preg_match('/^[a-zA-Z0-9_]+$/', $quiz_table_suffix)) {
+    $quiz_table = $wpdb->prefix . $quiz_table_suffix;
     $wpdb->query("DROP TABLE IF EXISTS `{$quiz_table}`");
 }
 

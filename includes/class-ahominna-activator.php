@@ -73,6 +73,7 @@ class AhoMinna_Activator {
             'ahominna_enable_audio' => 1,
             'ahominna_enable_video' => 1,
             'ahominna_items_per_page' => 10,
+            'ahominna_vocab_per_page' => 100,
         );
         
         foreach ($defaults as $key => $value) {

@@ -10,9 +10,10 @@ if (!defined('ABSPATH')) {
 }
 
 // Get vocabulary for this lesson
+$vocab_per_page = get_option('ahominna_vocab_per_page', 100);
 $args = array(
     'post_type' => 'ahominna_vocabulary',
-    'posts_per_page' => 100, // Limit to prevent performance issues
+    'posts_per_page' => intval($vocab_per_page), // Configurable limit to prevent performance issues
     'meta_query' => array(
         array(
             'key' => '_lesson_id',

@@ -14,6 +14,7 @@ if (isset($_POST['ahominna_settings_submit']) && check_admin_referer('ahominna_s
     update_option('ahominna_enable_audio', isset($_POST['enable_audio']) ? 1 : 0);
     update_option('ahominna_enable_video', isset($_POST['enable_video']) ? 1 : 0);
     update_option('ahominna_items_per_page', intval($_POST['items_per_page']));
+    update_option('ahominna_vocab_per_page', intval($_POST['vocab_per_page']));
     
     echo '<div class="notice notice-success"><p>' . __('Settings saved.', 'ahominna') . '</p></div>';
 }
@@ -21,6 +22,7 @@ if (isset($_POST['ahominna_settings_submit']) && check_admin_referer('ahominna_s
 $enable_audio = get_option('ahominna_enable_audio', 1);
 $enable_video = get_option('ahominna_enable_video', 1);
 $items_per_page = get_option('ahominna_items_per_page', 10);
+$vocab_per_page = get_option('ahominna_vocab_per_page', 100);
 ?>
 
 <div class="wrap ahominna-settings">
@@ -59,6 +61,16 @@ $items_per_page = get_option('ahominna_items_per_page', 10);
                 <td>
                     <input type="number" name="items_per_page" id="items_per_page" value="<?php echo esc_attr($items_per_page); ?>" min="1" max="100" />
                     <p class="description"><?php _e('Number of lessons to display per page in archive', 'ahominna'); ?></p>
+                </td>
+            </tr>
+            
+            <tr>
+                <th scope="row">
+                    <label for="vocab_per_page"><?php _e('Vocabulary Per Page', 'ahominna'); ?></label>
+                </th>
+                <td>
+                    <input type="number" name="vocab_per_page" id="vocab_per_page" value="<?php echo esc_attr($vocab_per_page); ?>" min="10" max="500" />
+                    <p class="description"><?php _e('Maximum number of vocabulary items to load per lesson (for performance)', 'ahominna'); ?></p>
                 </td>
             </tr>
         </table>
