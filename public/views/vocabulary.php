@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 // Get vocabulary for this lesson
 $args = array(
     'post_type' => 'ahominna_vocabulary',
-    'posts_per_page' => -1,
+    'posts_per_page' => 100, // Limit to prevent performance issues
     'meta_query' => array(
         array(
             'key' => '_lesson_id',
@@ -20,6 +20,8 @@ $args = array(
             'compare' => '='
         )
     ),
+    'orderby' => 'menu_order',
+    'order' => 'ASC',
 );
 
 $vocab_query = new WP_Query($args);

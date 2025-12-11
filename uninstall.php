@@ -20,11 +20,17 @@ delete_option('ahominna_items_per_page');
 // Delete custom tables (optional - comment out if you want to preserve data)
 global $wpdb;
 
+// Sanitize table names by ensuring they use the correct prefix
 $progress_table = $wpdb->prefix . 'ahominna_progress';
 $quiz_table = $wpdb->prefix . 'ahominna_quiz_results';
 
-$wpdb->query("DROP TABLE IF EXISTS $progress_table");
-$wpdb->query("DROP TABLE IF EXISTS $quiz_table");
+// Verify table names are valid (contain only alphanumeric and underscore)
+if (preg_match('/^[a-zA-Z0-9_]+$/', str_replace($wpdb->prefix, '', 'ahominna_progress'))) {
+    $wpdb->query("DROP TABLE IF EXISTS `{$progress_table}`");
+}
+if (preg_match('/^[a-zA-Z0-9_]+$/', str_replace($wpdb->prefix, '', 'ahominna_quiz_results'))) {
+    $wpdb->query("DROP TABLE IF EXISTS `{$quiz_table}`");
+}
 
 // Delete all custom post types and their meta
 $post_types = array(

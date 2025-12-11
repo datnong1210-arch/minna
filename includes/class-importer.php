@@ -15,6 +15,12 @@ class AhoMinna_Importer {
             return new WP_Error('file_not_found', __('CSV file not found', 'ahominna'));
         }
         
+        // Validate lesson_id is within valid range (1-50 for Minna no Nihongo)
+        $lesson_id = intval($lesson_id);
+        if ($lesson_id < 1 || $lesson_id > 50) {
+            return new WP_Error('invalid_lesson_id', __('Lesson ID must be between 1 and 50', 'ahominna'));
+        }
+        
         $handle = fopen($file_path, 'r');
         if ($handle === false) {
             return new WP_Error('file_open_error', __('Could not open CSV file', 'ahominna'));
@@ -76,6 +82,12 @@ class AhoMinna_Importer {
     public static function import_quiz_csv($file_path, $lesson_id) {
         if (!file_exists($file_path)) {
             return new WP_Error('file_not_found', __('CSV file not found', 'ahominna'));
+        }
+        
+        // Validate lesson_id is within valid range (1-50 for Minna no Nihongo)
+        $lesson_id = intval($lesson_id);
+        if ($lesson_id < 1 || $lesson_id > 50) {
+            return new WP_Error('invalid_lesson_id', __('Lesson ID must be between 1 and 50', 'ahominna'));
         }
         
         $handle = fopen($file_path, 'r');

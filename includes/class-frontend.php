@@ -67,6 +67,10 @@ class AhoMinna_Frontend {
                 'ajax_url' => admin_url('admin-ajax.php'),
                 'nonce' => wp_create_nonce('ahominna_nonce'),
                 'plugin_url' => AHOMINNA_PLUGIN_URL,
+                'user_id' => get_current_user_id(),
+                'i18n' => array(
+                    'confirm_submit' => __('You haven\'t answered all questions. Do you want to submit?', 'ahominna'),
+                ),
             ));
         }
     }

@@ -185,7 +185,8 @@
             var answeredCount = Object.keys(userAnswers).length;
             
             if (answeredCount < totalQuestions) {
-                if (!confirm('Bạn chưa trả lời hết các câu hỏi. Bạn có muốn nộp bài không?')) {
+                var confirmMessage = ahominna.i18n ? ahominna.i18n.confirm_submit : 'Bạn chưa trả lời hết các câu hỏi. Bạn có muốn nộp bài không?';
+                if (!confirm(confirmMessage)) {
                     return;
                 }
             }
