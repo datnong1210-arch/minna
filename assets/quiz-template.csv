@@ -1,0 +1,5 @@
+question,type,option_a,option_b,option_c,option_d,correct_index,explanation,audio_url
+これは何ですか？,vocabulary,本,ペン,ノート,消しゴム,0,これは本です。本 (ほん) nghĩa là sách.,
+あれは誰の傘ですか？,grammar,私,あなた,田中さん,先生,2,あれは田中さんの傘です。,
+＿＿は学生ですか？,grammar,誰,何,どこ,いつ,0,誰は学生ですか？Ai là học sinh?,
+教室に＿＿がありますか？,vocabulary,机,椅子,黒板,全部正しい,3,教室には机も椅子も黒板もあります。,

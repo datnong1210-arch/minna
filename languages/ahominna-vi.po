@@ -1,0 +1,115 @@
+# Vietnamese Translation for AhoMINNA
+# Copyright (C) 2024
+# This file is distributed under the same license as the AhoMINNA plugin.
+
+msgid ""
+msgstr ""
+"Project-Id-Version: AhoMINNA 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 12:00+0000\n"
+"PO-Revision-Date: 2024-01-01 12:00+0000\n"
+"Last-Translator: DatNong\n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+# Admin
+msgid "AhoMINNA Dashboard"
+msgstr "Bảng điều khiển AhoMINNA"
+
+msgid "Lessons"
+msgstr "Bài học"
+
+msgid "Vocabulary"
+msgstr "Từ vựng"
+
+msgid "Grammar"
+msgstr "Ngữ pháp"
+
+msgid "Dialogues"
+msgstr "Hội thoại"
+
+msgid "Quizzes"
+msgstr "Trắc nghiệm"
+
+msgid "Import Data"
+msgstr "Nhập dữ liệu"
+
+msgid "Settings"
+msgstr "Cài đặt"
+
+# Frontend
+msgid "Từ vựng - Vocabulary"
+msgstr "Từ vựng - Vocabulary"
+
+msgid "Ngữ pháp - Grammar"
+msgstr "Ngữ pháp - Grammar"
+
+msgid "Hội thoại - Conversation"
+msgstr "Hội thoại - Conversation"
+
+msgid "Trắc nghiệm - Quiz"
+msgstr "Trắc nghiệm - Quiz"
+
+msgid "Bắt đầu học"
+msgstr "Bắt đầu học"
+
+msgid "Học"
+msgstr "Học"
+
+msgid "Ôn tập"
+msgstr "Ôn tập"
+
+msgid "Xem nghĩa"
+msgstr "Xem nghĩa"
+
+msgid "Xem từ"
+msgstr "Xem từ"
+
+msgid "Trước"
+msgstr "Trước"
+
+msgid "Sau"
+msgstr "Sau"
+
+msgid "Xáo trộn"
+msgstr "Xáo trộn"
+
+msgid "Nghĩa tiếng Việt"
+msgstr "Nghĩa tiếng Việt"
+
+msgid "Giải thích"
+msgstr "Giải thích"
+
+msgid "Ví dụ"
+msgstr "Ví dụ"
+
+msgid "Phát toàn bộ"
+msgstr "Phát toàn bộ"
+
+msgid "Ẩn/Hiện dịch"
+msgstr "Ẩn/Hiện dịch"
+
+msgid "Bắt đầu làm bài"
+msgstr "Bắt đầu làm bài"
+
+msgid "Nộp bài"
+msgstr "Nộp bài"
+
+msgid "Làm lại"
+msgstr "Làm lại"
+
+msgid "Xem đáp án"
+msgstr "Xem đáp án"
+
+msgid "Đúng"
+msgstr "Đúng"
+
+msgid "Sai"
+msgstr "Sai"
+
+msgid "Tổng"
+msgstr "Tổng"
